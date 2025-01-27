@@ -7,17 +7,17 @@ Original file is located at
     https://colab.research.google.com/drive/1ZN_t0pqc5jJifQxnEXh3WgqjHOeVTDdi
 """
 
-!pip install langchain langchain_openai chromadb streamlit unstructured python-pptx python-docx pypdf google-colab google-auth-oauthlib google-auth-httplib2 google-api-python-client langchain_community PyMuPDF docx2txt
+# !pip install langchain langchain_openai chromadb streamlit unstructured python-pptx python-docx pypdf google-colab google-auth-oauthlib google-auth-httplib2 google-api-python-client langchain_community PyMuPDF docx2txt
 
-!pip install tenacity
+# !pip install tenacity
 
-!apt-get update && apt-get install -y google-cloud-sdk
+# !apt-get update && apt-get install -y google-cloud-sdk
 
-!gcloud auth login
+# !gcloud auth login
 
-!gcloud config set project daclub-session-1
+# !gcloud config set project daclub-session-1
 
-!apt-get install docker.io
+# !apt-get install docker.io
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile requirements.txt
@@ -69,11 +69,11 @@ FOLDER_ID = "1rhYI8LHlPWXj9ZzOC02FrjIwvLM-eMrQ"
 OPENAI_API_KEY = "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"
 
 # Mount Google Drive
-from google.colab import drive # Import the drive function from google.colab module
-drive.mount('/content/drive')
+# from google.colab import drive # Import the drive function from google.colab module
+# drive.mount('/content/drive')
 
 # Google Drive setup
-SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
+# SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
 
 from google.oauth2 import service_account
 
@@ -313,16 +313,3 @@ if __name__ == "__main__":
 # google-auth-httplib2
 # google-api-python-client
 # langchain_community
-
-from pyngrok import ngrok
-
-# Kill any existing ngrok processes
-!pkill ngrok
-
-# Establish a new ngrok connection
-public_url = ngrok.connect(addr="8501")
-print(f"Public URL: {public_url}")
-
-# Now run your Streamlit app using the public_url
-# (Replace with your actual command to run Streamlit)
-!streamlit run /content/drive/MyDrive/IR_RAG/rag.py --server.address 0.0.0.0 --server.port 8501
