@@ -49,19 +49,19 @@ AUTH_PROVIDER_CERT = os.environ.get("AUTH_PROVIDER_CERT")
 CLIENT_CERT = os.environ.get("CLIENT_CERT")
     
 service_account_info = {
-    "type": TYPE,
-    "project_id": PROJECT_ID,
+    "type": "service_account",
+    "project_id": "daclub-session-1",
     "private_key_id": PRIVATE_KEY_ID,
     "private_key": PRIVATE_KEY,
-    "client_email": CLIENT_EMAIL,
-    "client_id": CLIENT_ID,
-    "auth_uri": AUTH_URI,
-    "token_uri": TOKEN_URI,
-    "auth_provider_x509_cert_url": AUTH_PROVIDER_CERT,
-    "client_x509_cert_url": CLIENT_CERT,
+    "client_email": "rag-chatbot@daclub-session-1.iam.gserviceaccount.com",
+    "client_id": "108357860878317518131",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rag-chatbot%40daclub-session-1.iam.gserviceaccount.com",
     "universe_domain": "googleapis.com"
 }
-
+    
 def initialize_gcs_client():
     """Initialize Google Cloud Storage client with service account"""
     storage_client = storage.Client.from_service_account_info(service_account_info)
