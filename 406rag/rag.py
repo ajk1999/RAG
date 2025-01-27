@@ -47,9 +47,6 @@ AUTH_URI = os.environ.get("AUTH_URI")
 TOKEN_URI = os.environ.get("TOKEN_URI")
 AUTH_PROVIDER_CERT = os.environ.get("AUTH_PROVIDER_CERT")
 CLIENT_CERT = os.environ.get("CLIENT_CERT")
-
-import streamlit
-import json
     
 service_account_info = {
     "type": TYPE,
