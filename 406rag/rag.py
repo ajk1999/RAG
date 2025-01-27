@@ -37,15 +37,32 @@ from docx import Document
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+TYPE = os.environ.get("TYPE")
+PROJECT_ID = os.environ.get("PROJECT_ID")
 PRIVATE_KEY_ID = os.environ.get("PRIVATE_KEY_ID")
 PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+CLIENT_EMAIL = os.environ.get("CLIENT_EMAIL")
+CLIENT_ID = os.environ.get("CLIENT_ID")
+AUTH_URI = os.environ.get("AUTH_URI")
+TOKEN_URI = os.environ.get("TOKEN_URI")
+AUTH_PROVIDER_CERT = os.environ.get("AUTH_PROVIDER_CERT")
+
 
 import streamlit
 import json
     
 service_account_info = {
-    "PRIVATE_KEY_ID": st.secrets["PRIVATE_KEY_ID"],
-    "PRIVATE_KEY": st.secrets["PRIVATE_KEY"]
+    "type" = "service_account",
+    "project_id": "daclub-session-1",
+    "private_key_id": "dc01ff3c6d344059dee7e6892ee7995cc1acf06d",
+    "private_key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3hhlixFeDI4E1\n6bXnlB46C9eQV7MZEjaIVTsDFs8x/PlIfgNqNgRa5BFcwWswA6VjTHpmj0wgQxQq\n8Dt1y121G3rF6wEdfBfH9UPCjGqxVVzk4EyK8+jUoE4TTALWEOBoITbebd0+PVEa\nztje+48fa5QCdxCM9hMq/trSN8tYgz8ZYCY/a7JVhfY4kp2azJV8iTMtdANWjP2J\nVzrdDhOqxHoQ5+zk+3pqgkyFerkyJ61NACDX89/ghWvhFFKq1A2yp2zamr5In8Rr\nSUbB85Qd6uGXzKcLj++vWdC9dXPzo10kEup85NLYD6SdIzI6uhpBJj9zHQAdb5/F\n7pdHddhXAgMBAAECggEAMefb8GE/APC/OsduiWZcX+GHgX9vuwIaZTF0Ji9mMYw+\nx6lIyXGd9o9tb0FDoh9jsqCB6nDOPTmwesqwCKTAOzcZSEfTGk778oquHfHsM4Po\nim66MdEJAAUFpja10LtvIrHhh1Pt5XZsHzOfgud6cItjCNaS4BosdTUvkRnOCKfW\nFweRU0BTd01IjK2pyJ1pxZdhU5BKq1jAMBqy+Gyqc85sJ3Vl4XsSvRW094C/Gw8R\nYjQwPKM4m4QnY9DxYhmDgwaylU2eh01hcp2TBPLx1Pnn0avzU0DltMWlCBiuThUl\n9kuUcOlCCZdk+Sfs4zzlvOE9GCqsvVw9aGOJHE06EQKBgQDi5tdd723jOosemEol\nsBLYieLPVYFKlE5yl4w1QJbmrCiczXKKOi/RYPf17D+iGd2B0uFfhVyQYab6nCZ5\ngxSo9zc3kcd7msLdJjKxRLq9YnSBffj6tBEh2bgNx/y1ilGX8uz3QjAT0QxAAeR1\n6EJQ5mTgR/BZ/mafflIQwYf6EQKBgQDPDyqNZCSVVC7+0EA3al/Wob72Q3HH9GDP\nJmmXq13ufokEt8ERaHBIkazXavzllSjJg2Q5O/XKZ0rwry/djNyuc3uP1QkwF6cg\nKxwBMfOgMqvhKpYoE31h7LX7jzTdbZnLSmS/wsXE4hb/9ao50RahpYYYp2HBpo8X\naYUh84UD5wKBgFWcEVAw4T4lvY3KmddEaqfmxnvB4ClacYrM4SrKduULubsHzRqY\nP6h5NLVF8PBhX/D2tvAKalVTcuQFfILGUUo7FEtUJnbden5kRiYaL3b7Kcgd1o4I\n2Jn0Any4owF/8a8qCfx0rZ0cd8nCrQdLnZHWi+MPYYEi+mddCuuliX9xAoGBALQ5\nHC2TM7ByZLFP7AUP5rk3cbKBw8Bp+fV0FsZ31ztmEbb0heyz/b98ZHff3J2r9aNo\nZMzYXri8rWLO6Reqqs6BH9RydhvRCpuaSjbUFpyiXi6PVcEuLZ0VXtTFshrlcc6b\nQxQR4PfcXm6NkovebRdnrk85KYJXigazxrhlcKqTAoGAMkg4IBp7TWqpOx/lljOn\nVsu+GnmGtBD+hLM6rTs0Wk4X1iOijnDGMa/XM76Us9LGswaALJ4cnV62gOoINBmL\nqGqHmxvCs+cSIu7HrpPM0307h55fhv94N51SBLUSKrByZ68HZGGyu6TJGv3mRG4l\nm66lZBrPKvuE0sM0E6YcSSo=",
+    "client_email": "rag-chatbot@daclub-session-1.iam.gserviceaccount.com",
+    "client_id": "108357860878317518131",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rag-chatbot%40daclub-session-1.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
 }
 
 def initialize_gcs_client():
