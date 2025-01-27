@@ -44,8 +44,8 @@ import streamlit
 import json
     
 service_account_info = {
-    "PRIVATE_KEY_ID": private_key_id,
-    "PRIVATE_KEY": private_key,
+    "PRIVATE_KEY_ID": PRIVATE_KEY_ID,
+    "PRIVATE_KEY": PRIVATE_KEY,
 }
 
 def initialize_gcs_client():
