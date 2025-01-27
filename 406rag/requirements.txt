@@ -1,1 +1,18 @@
-
+streamlit
+  langchain
+  langchain_openai
+  chromadb
+  unstructured
+  python-pptx
+  python-docx
+  pypdf
+  google-colab
+  google-auth-oauthlib
+  google-auth-httplib2
+  google-api-python-client
+  langchain_community
+  PyMuPDF
+  docx2txt
+  google-cloud-storage
+  google.cloud
+  tenacity
