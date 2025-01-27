@@ -31,15 +31,19 @@ from langchain.schema import Document
 from langchain.chains import ConversationalRetrievalChain
 
 import pypdf
+import json
 from pptx import Presentation
 from docx import Document
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
 def initialize_gcs_client():
     """Initialize Google Cloud Storage client with service account"""
-    storage_client = storage.Client.from_service_account_json('service_account.json')
+    service_account_string = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+    service_account_info = json.loads(service_account_string) 
+    storage_client = storage.Client.from_service_account_info(service_account_info)  # Authenticate using the info
     return storage_client
 
 def download_files_from_bucket(storage_client) -> List[Tuple[str, bytes]]:
