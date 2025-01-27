@@ -37,29 +37,22 @@ from docx import Document
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-TYPE = os.environ.get("TYPE")
-PROJECT_ID = os.environ.get("PROJECT_ID")
-PRIVATE_KEY_ID = os.environ.get("PRIVATE_KEY_ID")
-PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
-CLIENT_EMAIL = os.environ.get("CLIENT_EMAIL")
-CLIENT_ID = os.environ.get("CLIENT_ID")
-AUTH_URI = os.environ.get("AUTH_URI")
-TOKEN_URI = os.environ.get("TOKEN_URI")
-AUTH_PROVIDER_CERT = os.environ.get("AUTH_PROVIDER_CERT")
-CLIENT_CERT = os.environ.get("CLIENT_CERT")
-    
+
+import os
+import streamlit as st
+
 service_account_info = {
-    "type": "service_account",
-    "project_id": "daclub-session-1",
-    "private_key_id": PRIVATE_KEY_ID,
-    "private_key": PRIVATE_KEY,
-    "client_email": "rag-chatbot@daclub-session-1.iam.gserviceaccount.com",
-    "client_id": "108357860878317518131",
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rag-chatbot%40daclub-session-1.iam.gserviceaccount.com",
-    "universe_domain": "googleapis.com"
+    "type": st.secrets["type"],
+    "project_id": st.secrets["project_id"],
+    "private_key_id": st.secrets["private_key_id"],
+    "private_key": st.secrets["private_key"],
+    "client_email": st.secrets["client_email"],
+    "client_id": st.secrets["client_id"],
+    "auth_uri": st.secrets["auth_uri"],
+    "token_uri": st.secrets["token_uri"],
+    "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
+    "client_x509_cert_url": st.secrets["client_x509_cert_url"]
+    "universe_domain": st.secrets["universe_domain"]
 }
     
 def initialize_gcs_client():
