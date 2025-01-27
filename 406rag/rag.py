@@ -52,7 +52,7 @@ import streamlit
 import json
     
 service_account_info = {
-    "type" = TYPE,
+    "type": TYPE,
     "project_id": PROJECT_ID,
     "private_key_id": PRIVATE_KEY_ID,
     "private_key": PRIVATE_KEY,
