@@ -50,7 +50,7 @@ service_account_info = {
 
 def initialize_gcs_client():
     """Initialize Google Cloud Storage client with service account"""
-    storage_client = storage.Client.from_service_account_json('service_account_info')
+    storage_client = storage.Client.from_service_account_info('service_account_info')
     return storage_client
 
 def download_files_from_bucket(storage_client) -> List[Tuple[str, bytes]]:
