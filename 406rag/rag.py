@@ -42,10 +42,11 @@ PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
 
 import streamlit
 import json
-    service_account_info = {
-        "PRIVATE_KEY_ID": private_key_id,
-        "PRIVATE_KEY": private_key,
-    }
+    
+service_account_info = {
+    "PRIVATE_KEY_ID": private_key_id,
+    "PRIVATE_KEY": private_key,
+}
 
 def initialize_gcs_client():
     """Initialize Google Cloud Storage client with service account"""
