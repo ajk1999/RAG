@@ -41,8 +41,7 @@ GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"
 
 def initialize_gcs_client():
     """Initialize Google Cloud Storage client with service account"""
-    service_account_string = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-    service_account_info = json.loads(service_account_string) 
+    service_account_info = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
     storage_client = storage.Client.from_service_account_info(service_account_info)  # Authenticate using the info
     return storage_client
 
