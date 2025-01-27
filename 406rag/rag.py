@@ -37,12 +37,10 @@ from docx import Document
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
 
 def initialize_gcs_client():
     """Initialize Google Cloud Storage client with service account"""
-    service_account_info = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-    storage_client = storage.Client.from_service_account_info(service_account_info)  # Authenticate using the info
+    storage_client = storage.Client.from_service_account_json('service_account.json')
     return storage_client
 
 def download_files_from_bucket(storage_client) -> List[Tuple[str, bytes]]:
