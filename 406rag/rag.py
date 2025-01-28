@@ -35,24 +35,24 @@ import json
 from pptx import Presentation
 from docx import Document
 
-BUCKET_NAME = os.environ.get("BUCKET_NAME")
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+BUCKET_NAME = st.secrets["BUCKET_NAME"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 import os
 import streamlit as st
 
 service_account_info = {
-    "type": os.environ.get('type'),
-    "project_id": os.environ.get('project_id'),
-    "private_key_id": os.environ.get('private_key_id'),
-    "private_key": os.environ.get('private_key'),
-    "client_email": os.environ.get('client_email'),
-    "client_id": os.environ.get('client_id'),
-    "auth_uri": os.environ.get('auth_uri'),
-    "token_uri": os.environ.get('token_uri'),
-    "auth_provider_x509_cert_url": os.environ.get('auth_provider_x509_cert_url'),
-    "client_x509_cert_url": os.environ.get('client_x509_cert_url'),
-    "universe_domain": os.environ.get('universe_domain')
+    "type": st.secrets["type"],
+    "project_id": st.secrets["project_id"],
+    "private_key_id": st.secrets["private_key_id"],
+    "private_key": st.secrets["private_key"],
+    "client_email": st.secrets["client_email"],
+    "client_id": st.secrets["client_id"],
+    "auth_uri": st.secrets["auth_uri"],
+    "token_uri": st.secrets["token_uri"],
+    "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
+    "client_x509_cert_url": st.secrets["client_x509_cert_url"],
+    "universe_domain": st.secrets["universe_domain"]
 }
     
 def initialize_gcs_client():
