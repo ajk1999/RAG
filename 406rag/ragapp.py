@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1dMqhxG7Soj11ohPjxKJMo82KNL1yzLVy
 """
 
-!pip install langchain langchain_openai chromadb streamlit unstructured python-pptx python-docx pypdf google-colab google-auth-oauthlib google-auth-httplib2 google-api-python-client langchain_community PyMuPDF docx2txt google-cloud-storage google.cloud tenacity
+# !pip install langchain langchain_openai chromadb streamlit unstructured python-pptx python-docx pypdf google-colab google-auth-oauthlib google-auth-httplib2 google-api-python-client langchain_community PyMuPDF docx2txt google-cloud-storage google.cloud tenacity
 
 import os
 import tempfile
