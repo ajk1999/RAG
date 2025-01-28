@@ -59,14 +59,6 @@ def initialize_gcs_client():
     storage_client = storage.Client(credentials=source_credentials)
     return storage_client
 
-import streamlit
-import json
-
-def initialize_gcs_client():
-    """Initialize Google Cloud Storage client with service account"""
-    storage_client = storage.Client.from_service_account_json('service_account_json')
-    return storage_client
-
 def download_files_from_bucket(storage_client) -> List[Tuple[str, bytes]]:
     """Download all files from the specified GCS bucket"""
     bucket = storage_client.bucket(BUCKET_NAME)
