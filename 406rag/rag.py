@@ -41,6 +41,8 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 import os
 import streamlit as st
 
+st.write("All available secret keys:", list(st.secrets.keys()))
+
 service_account_info = {
     "type": st.secrets["type"],
     "project_id": st.secrets["project_id"],
